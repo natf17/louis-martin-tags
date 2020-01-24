@@ -1,0 +1,321 @@
+This document lists values that'll be used to generate the tags. Ideally, they'd be used as options in a drop-down menu.
+
+MATERIAL_GOLD_PURITY
+10kt
+14kt
+15kt
+18kt
+
+
+MATERIAL_GOLD_COLOR
+rose, white, yellow
+
+
+MATERIAL_GOLD_COMPOSITION
+filled, plated, top 
+
+
+MATERIAL_SILVER_COMPOSITION
+sterling, plated, filled
+
+
+WATCH_STRAP_MATERIAL_LEATHER_COLOR
+black, brown
+
+
+WATCH_STRAP_MATERIAL_LEATHER_SOURCE
+alligator
+
+
+MATERIAL_OTHER_COLOR
+black, blue, green
+
+
+MATERIAL_OTHER_NAME
+vermeil
+platinum
+stainless steel
+enamel
+
+
+STONE_DIAMOND_COLOR
+black, champagne, yellow, white
+
+
+STONE_DIAMOND_CUT
+asscher, baguette, emerald, European, French, marquise, multi, princess, radiant, rose, round
+
+
+STONE_OTHER_TYPE
+angel(coral)
+natural (coral, turquoise)
+spessartite (garnet)
+Akoya, mother of pearl, Tahitian, south sea (pearl)
+cabochon
+
+STONE_OTHER_COLOR
+black, blue, white, green, pink, yellow, orange, lemon
+
+
+STONE_OTHER_NAME
+agate
+amethyst
+apatite
+coral
+onyx
+beryl
+aquamarine
+opal
+topaz
+citrine
+emerald
+morganite
+chrysoberyl
+turquoise
+topaz
+tourmaline
+tsavorite
+prasiolite
+rubellite
+ruby
+tanzanite
+garnet
+jade
+feldspar
+gemstone
+labradorite
+scarab
+semi precious
+sapphire
+pearl
+lapis
+quartz
+
+
+WATCH_BRAND_NAME
+ball
+audemars piguet
+baume & mercier
+benrus
+breitling
+cartier
+cortina
+corum
+davidoff
+elgin
+girard-perregaux
+gruen
+hamilton
+heuer
+IWC
+jaeger lecoultre
+jules jurgensen
+lecoultre
+longines
+lucien piccard
+movado
+omega
+patek philippe
+peridot
+piaget
+rolex
+tag heuer
+tiffany & co
+ulysse nardin
+universal geneve
+vacheron & constantin
+wittnauer
+zenith
+
+
+WATCH_MODEL_NAME
+5010
+air-king
+alarm
+aquaracer
+calatrava
+carrera
+cellini
+cellini cellissima
+cellini danaos
+cellini prince
+chronomat
+chronometer
+colt 33
+colt chronograph
+constellation
+constellation chronometer
+cubelin
+date
+datejust
+datejust president
+daytona
+de ville
+elite
+ellipse
+explorer I
+explorer II
+flight
+flightmaster
+geneve
+gmt-master
+gmt-master-II
+gondolo
+grasshopper
+indianapolis 500
+jolly roger
+ladies
+master mariner
+milgauss
+monaco
+nautilus
+navitimer
+navitimer montbrillant
+oyster perpetual
+pocket watch
+powermatic
+president
+rootbeer
+sea-dweller
+seamaster
+sir echo
+skeleton
+submariner
+super ocean
+tiffany calatrava
+trainmaster
+trapeze
+twenty-4
+windrider cockpit
+yachtmaster
+
+WATCH_BRACELET_TYPE
+oyster
+
+WATCH_STRAP_MATERIAL_OTHER_NAME
+rubber (for watch bands)
+cord(watch bracelet)
+
+WATCH_STRAP_MATERIAL_OTHER_COLOR
+---
+
+WATCH_DIAL_PATTERN_FEATURE
+skull
+stardust
+mystery
+bullseye
+chapter ring
+crono
+du pont
+coin
+guilloche
+lined
+mason
+nude
+off-white
+pearlized
+pie pan
+skeleton
+tuxedo stripe
+two tone
+
+
+WATCH_DIAL_STONE
+lapis
+Mother of pearl
+
+WATCH_DIAL_COLOR
+white
+beige
+black
+blue
+brown
+burgundy
+champagne
+gold
+green
+grey
+mars
+pink
+porcelain
+salmon
+silver
+tan
+yellow
+
+WATCH_BEZEL_PATTERN
+fluted
+
+
+WATCH_PAPERS_VALUE
+papers
+no papers
+
+
+PRODUCT_YEAR
+1948-2017
+Include decades
+
+
+WATCH_MOVEMENT
+automatic
+mechanical
+bumper automatic
+quartz
+
+
+WATCH_CASE_DIMENSIONS
+10 -> 50mm (?)
+
+
+JEWELRY_PRODUCT_CATEGORY
+bracelet, brooch/pin, ring, earrings, necklace/pendant
+
+
+BRIDAL_PRODUCT_CATEGORY
+engagement-rings
+wedding-bands 
+
+WATCH_PRODUCT_CATEGORY
+preowned, vintage
+
+
+TIME_PERIOD
+Art Deco
+edwardian
+retro
+victorian
+
+PRODUCT_CONDITION
+excellent
+good
+very good
+
+
+PRODUCT_GENDER
+mens
+unisex
+womens
+
+PRODUCT_CERTIFIED
+certified
+
+PRODUCT_CERTIFIED_TYPE
+gal
+
+
+
+
+JEWELRY_BRAND_NAME
+bulgari
+bvlgari
+chimento
+Jose Hess
+
+
+SPECIAL_COLLECTION_TAG
+animal
+ballerina
+tennis bracelet
+drop earrings
+
