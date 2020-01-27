@@ -5,8 +5,49 @@
       |                                            |
       |============================================|
 
+Watches and jewelry require different properties to generate different tags.
 
-NOTE: If the value for "source of values" is all caps, it refers to a variable with the given name.
+For jewelry, see the sections "HOW TO GENERATE...
+1.  GENERIC MATERIAL TAGS
+2.  GENERIC STONE TAGS
+3.  ERA/TIME PERIOD TAG (for estate)
+4.  JEWELRY PRODUCT CATEGORY TAG
+5.  PRODUCT GENDER TAG
+6.  PRODUCT CERTIFIED TAG
+7.  JEWELRY BRAND TAG
+8.  SPECIAL COLLECTION TAG
+
+
+For watches, see the sections "HOW TO GENERATE...
+1.  WATCH PRODUCT CATEGORY TAG
+2.  PRODUCT CONDITION TAG
+3.  PRODUCT GENDER TAG
+4.  WATCH BRAND TAG
+5.  WATCH MODEL TAG
+6.  WATCH BRACELET TAG
+7.  WATCH STRAP TAG
+8.  WATCH DIAL TAG
+9.  WATCH CASE MATERIAL TAG
+10. WATCH PAPERS TAG
+11. PRODUCT YEAR TAG
+12. WATCH MOVEMENT TAG
+13. WATCH CASE DIMENSIONS TAG
+
+For bridal jewelry, see the sections "HOW TO GENERATE...
+1.  BRIDAL PRODUCT CATEGORY TAG
+... and all the sections mentioned above for jewelry
+
+
+------------------------------
+How the tables are organized 
+------------------------------
+
+"Properties": Contains the properties needed from the user to generate the tag.
+
+"Source of values": Provides information about where the property value comes from. If the source is all caps, it refers to a variable with that name. "user-input" means that the user directly enters the value in a text box. A value of "See 'HOW TO GENERATE...'" is for complex tags that are built by adding a suffix to simpler tags. For example the bracelet material tag requires all generic material tags to be generated, and then a suffix to be added to each one.
+
+"Generated tags format": The comma-separated tags generated from the properties provided. The value in [] represents the value of the property with that name. 
+
 
 ========================================
 HOW TO GENERATE GENERIC MATERIAL TAGS
@@ -51,7 +92,7 @@ Ex: green enamel is tagged as "enamel, green enamel"
 
 
 ======================================
-HOW TO GENERATE A GENERIC STONE TAG
+HOW TO GENERATE GENERIC STONE TAGS
 ======================================
 
 ---DIAMOND:
