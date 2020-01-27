@@ -1,10 +1,18 @@
-# Tagging
+
+      |============================================|
+      |                                            |
+      |             TAGGING FORMULAS               |
+      |                                            |
+      |============================================|
+
 
 NOTE: If the value for "source of values" is all caps, it refers to a variable with the given name.
 
-## HOW TO GENERATE GENERIC MATERIAL TAGS
+========================================
+HOW TO GENERATE GENERIC MATERIAL TAGS
+========================================
 
-### GOLD:
+---GOLD:
 
   |--------------------------------------------------------------------------------------------------|
   |Properties:                     Purity                 Color                 Composition          |
@@ -14,9 +22,9 @@ NOTE: If the value for "source of values" is all caps, it refers to a variable w
   |Generated tags format:            gold, [composition] gold, [color] gold, [purity]                |
   |--------------------------------------------------------------------------------------------------|
 
-Ex: an 18kt yellow gold material is tagged as: **gold, yellow gold, 18kt**
+Ex: an 18kt yellow gold material is tagged as: "gold, yellow gold, 18kt"
 
-### SILVER: 
+---SILVER: 
 
   |--------------------------------------------------------------|
   |Properties:                        Composition                |
@@ -26,10 +34,10 @@ Ex: an 18kt yellow gold material is tagged as: **gold, yellow gold, 18kt**
   |Generated tags format:      silver, [composition] silver      |
   |--------------------------------------------------------------|
 
-Ex: a sterling silver material is tagged as: **silver, sterling silver**
+Ex: a sterling silver material is tagged as: "silver, sterling silver"
 
 
-### OTHER:
+---OTHER:
 
   |-------------------------------------------------------------------------|
   |Properties:                     Color                 Name               |
@@ -39,12 +47,14 @@ Ex: a sterling silver material is tagged as: **silver, sterling silver**
   |Generated tags format:            [name], [color] [name]                 |
   |-------------------------------------------------------------------------|
 
-Ex: green enamel is tagged as **enamel, green enamel**
+Ex: green enamel is tagged as "enamel, green enamel"
 
 
-## HOW TO GENERATE A GENERIC STONE TAG
+======================================
+HOW TO GENERATE A GENERIC STONE TAG
+======================================
 
-### DIAMOND:
+---DIAMOND:
 
   |----------------------------------------------------------------------------------------------------------------------------------|
   |Properties:                   Cut                  Color                Clarity             Carat             Fancycolor          |
@@ -54,10 +64,10 @@ Ex: green enamel is tagged as **enamel, green enamel**
   |Generated tags format:  diamond, [cut] diamond, [color]-color diamond, [clarity] diamond, [carat]ct diamond, [fancycolor] diamond |
   |----------------------------------------------------------------------------------------------------------------------------------|
 
-Ex: 2.05ct yellow round-cut diamond, VS1-clarity and G-color is tagged as: **diamond, round-cut diamond, G-color diamond, VS1 diamond, 2.05ct diamond, yellow diamond**
+Ex: 2.05ct yellow round-cut diamond, VS1-clarity and G-color is tagged as: "diamond, round-cut diamond, G-color diamond, VS1 diamond, 2.05ct diamond, yellow diamond"
 
 
-### OTHER:
+---OTHER:
   |--------------------------------------------------------------------------------------------------|
   |Properties:                 Type                 Color                Name            Carat       |
   |--------------------------------------------------------------------------------------------------|
@@ -66,10 +76,12 @@ Ex: 2.05ct yellow round-cut diamond, VS1-clarity and G-color is tagged as: **dia
   |Generated tags format:                    [name], [type], [color] [name], [carat]ct [name]        |
   |--------------------------------------------------------------------------------------------------|
 
-Ex: yellow spessartite garnet is tagged as **garnet, spessartite, yellow garnet**
+Ex: yellow spessartite garnet is tagged as "garnet, spessartite, yellow garnet"
 
 
-## HOW TO GENERATE ERA/TIME PERIOD TAG
+====================================
+HOW TO GENERATE ERA/TIME PERIOD TAG
+====================================
 
   |--------------------------------------------|
   |Properties:                  Era            |
@@ -79,10 +91,12 @@ Ex: yellow spessartite garnet is tagged as **garnet, spessartite, yellow garnet*
   |Generated tags format:    [era] era         |
   |--------------------------------------------|
 
-Ex: edwardian era is tagged as **edwardian era**
+Ex: edwardian era is tagged as "edwardian era"
 
 
-## HOW TO GENERATE JEWELRY PRODUCT CATEGORY TAG
+==============================================
+HOW TO GENERATE JEWELRY PRODUCT CATEGORY TAG
+==============================================
 
   |----------------------------------------------------|
   |Properties:                       Type              |
@@ -92,10 +106,12 @@ Ex: edwardian era is tagged as **edwardian era**
   |Generated tags format:           [type]             |
   |----------------------------------------------------|
 
-Ex: bracelet is tagged as **bracelet**
+Ex: bracelet is tagged as "bracelet"
 
 
-## HOW TO GENERATE BRIDAL PRODUCT CATEGORY TAG
+=============================================
+HOW TO GENERATE BRIDAL PRODUCT CATEGORY TAG
+=============================================
 
   |----------------------------------------------------|
   |Properties:                       Type              |
@@ -105,10 +121,12 @@ Ex: bracelet is tagged as **bracelet**
   |Generated tags format:           [type]             |
   |----------------------------------------------------|
 
-Ex: engagement-rings is tagged as **engagement-rings**
+Ex: engagement-rings is tagged as "engagement-rings"
 
 
-## HOW TO GENERATE WATCH PRODUCT CATEGORY TAG
+============================================
+HOW TO GENERATE WATCH PRODUCT CATEGORY TAG
+============================================
 
   |----------------------------------------------------|
   |Properties:                       Type              |
@@ -118,10 +136,12 @@ Ex: engagement-rings is tagged as **engagement-rings**
   |Generated tags format:           [type]             |
   |----------------------------------------------------|
 
-Ex: preowned is tagged as **preowned**
+Ex: preowned is tagged as "preowned"
 
 
-## HOW TO GENERATE PRODUCT CONDITION TAG
+=========================================
+HOW TO GENERATE PRODUCT CONDITION TAG
+=========================================
 
   |----------------------------------------------------|
   |Properties:                       Condition         |
@@ -131,10 +151,12 @@ Ex: preowned is tagged as **preowned**
   |Generated tags format:    condition [condition]     |
   |----------------------------------------------------|
 
-Ex: excellent is tagged as **condition excellent**
+Ex: excellent is tagged as "condition excellent"
 
 
-## HOW TO GENERATE PRODUCT GENDER TAG
+======================================
+HOW TO GENERATE PRODUCT GENDER TAG
+======================================
 
   |---------------------------------------------|
   |Properties:                 Gender           |
@@ -144,10 +166,12 @@ Ex: excellent is tagged as **condition excellent**
   |Generated tags format:     [gender]          |
   |---------------------------------------------|
 
-Ex: mens is tagged as **mens**
+Ex: mens is tagged as "mens"
 
 
-## HOW TO GENERATE PRODUCT CERTIFIED TAG
+=======================================
+HOW TO GENERATE PRODUCT CERTIFIED TAG
+=======================================
 
   |----------------------------------------------------------------------|
   |Properties:                 Certified                 Type            |
@@ -160,7 +184,9 @@ Ex: mens is tagged as **mens**
 Ex: gal-certified is tagged as **certified, gal certified**
 
 
-## HOW TO GENERATE JEWELRY BRAND TAG
+====================================
+HOW TO GENERATE JEWELRY BRAND TAG
+====================================
 
   |----------------------------------------------|
   |Properties:                   Brand           |
@@ -170,10 +196,12 @@ Ex: gal-certified is tagged as **certified, gal certified**
   |Generated tags format:       [brand]          |
   |----------------------------------------------|
 
-Ex: Chimento is tagged as **chimento**
+Ex: Chimento is tagged as "chimento"
 
 
-## HOW TO GENERATE SPECIAL COLLECTION TAG
+=========================================
+HOW TO GENERATE SPECIAL COLLECTION TAG
+=========================================
 
   |------------------------------------------------|
   |Properties:                   Type              |
@@ -183,10 +211,12 @@ Ex: Chimento is tagged as **chimento**
   |Generated tags format:       [type]             |
   |------------------------------------------------|
 
-Ex: animal is tagged as **animal**
+Ex: animal is tagged as "animal"
 
 
-## HOW TO GENERATE WATCH BRAND TAG
+=====================================
+HOW TO GENERATE WATCH BRAND TAG
+=====================================
 
   |--------------------------------------------------|
   |Properties:                   Brand               |
@@ -196,10 +226,12 @@ Ex: animal is tagged as **animal**
   |Generated tags format:       [brand]              |
   |--------------------------------------------------|
 
-Ex: elgin is tagged as **elgin**
+Ex: elgin is tagged as "elgin"
 
 
-## HOW TO GENERATE WATCH MODEL TAG
+==================================
+HOW TO GENERATE WATCH MODEL TAG
+==================================
 
   |--------------------------------------------------|
   |Properties:                  Model                |
@@ -209,10 +241,12 @@ Ex: elgin is tagged as **elgin**
   |Generated tags format:       [model]              |
   |--------------------------------------------------|
 
-Ex: Datejust is tagged as **datejust**
+Ex: Datejust is tagged as "datejust"
 
 
+========================================
 ## HOW TO GENERATE WATCH BRACELET TAG
+========================================
 
   |--------------------------------------------------------------------------------|
   |Properties:                  Materials                          type            |
@@ -224,11 +258,14 @@ Ex: Datejust is tagged as **datejust**
   |--------------------------------------------------------------------------------| 
 ^for each material tag generated as shown in "HOW... GENERIC MATERIALS TAGS", append "bracelet"
 
-Ex: 18kt yellow gold oyster bracelet is tagged as **18kt bracelet, yellow gold bracelet, gold bracelet, oyster bracelet**
+Ex: 18kt yellow gold oyster bracelet is tagged as "18kt bracelet, yellow gold bracelet, gold bracelet, oyster bracelet"
 
 
-## HOW TO GENERATE WATCH STRAP TAG
-LEATHER:
+===================================
+HOW TO GENERATE WATCH STRAP TAG
+===================================
+
+---LEATHER:
 
   |-----------------------------------------------------------------------------------------------------|
   |Properties:                            Color                                  Source                 |
@@ -238,10 +275,9 @@ LEATHER:
   |Generated tags format:        leather strap, [color] leather strap, [source] leather strap           |
   |-----------------------------------------------------------------------------------------------------|
 
-Ex: black alligator leather strap is tagged as **leather strap, black leather strap, alligator leather strap**
+Ex: black alligator leather strap is tagged as "leather strap, black leather strap, alligator leather strap"
 
-
-OTHER:
+---OTHER:
 
   |-----------------------------------------------------------------------------------------------------|
   |Properties:                            Name                                  Color                   |
@@ -251,10 +287,12 @@ OTHER:
   |Generated tags format:                         [name] strap, [color] strap                           |
   |-----------------------------------------------------------------------------------------------------|
 
-Ex: brown rubber strap is tagged as **brown strap, rubber strap**
+Ex: brown rubber strap is tagged as "brown strap, rubber strap"
 
 
-## HOW TO GENERATE WATCH DIAL TAG
+=================================
+HOW TO GENERATE WATCH DIAL TAG
+=================================
 
   |--------------------------------------------------------------------------------------------------|
   |Properties:                     Patterns                    Stones                 Color          |
@@ -264,10 +302,12 @@ Ex: brown rubber strap is tagged as **brown strap, rubber strap**
   |Generated tags format:               [color] dial, [stone] dial, [pattern] dial                   |
   |--------------------------------------------------------------------------------------------------|
 
-Ex: a white lapis chrono dial is tagged as: **white dial, lapis dial, chrono dial**
+Ex: a white lapis chrono dial is tagged as: "white dial, lapis dial, chrono dial"
 
 
-## HOW TO GENERATE WATCH CASE MATERIAL TAG
+==========================================
+HOW TO GENERATE WATCH CASE MATERIAL TAG
+==========================================
 
   |------------------------------------------------------------|
   |Properties:                  Materials                      |
@@ -279,10 +319,12 @@ Ex: a white lapis chrono dial is tagged as: **white dial, lapis dial, chrono dia
   |------------------------------------------------------------| 
 ^for each material tag generated as shown in "HOW... GENERIC MATERIALS TAGS", append "case material"
 
-Ex: 18kt yellow gold case is tagged as **18kt case material, gold case material, yellow gold case material**
+Ex: 18kt yellow gold case is tagged as "18kt case material, gold case material, yellow gold case material"
 
 
-## HOW TO GENERATE WATCH PAPERS TAG
+===================================
+HOW TO GENERATE WATCH PAPERS TAG
+===================================
 
   |--------------------------------------------------|
   |Properties:                  Value                |
@@ -292,10 +334,12 @@ Ex: 18kt yellow gold case is tagged as **18kt case material, gold case material,
   |Generated tags format:       [value]              |
   |--------------------------------------------------|
 
-Ex: papers is tagged as **papers**
+Ex: papers is tagged as "papers"
 
 
-## HOW TO GENERATE PRODUCT YEAR TAG
+===================================
+HOW TO GENERATE PRODUCT YEAR TAG
+===================================
 
   |-----------------------------------------------|
   |Properties:                  Year              |
@@ -305,10 +349,12 @@ Ex: papers is tagged as **papers**
   |Generated tags format:   year [year]           |
   |-----------------------------------------------|
 
-Ex: 1953 is tagged as **year 1953**
+Ex: 1953 is tagged as "year 1953"
 
 
-## HOW TO GENERATE WATCH MOVEMENT TAG
+======================================
+HOW TO GENERATE WATCH MOVEMENT TAG
+======================================
 
   |-----------------------------------------------|
   |Properties:                  Movement          |
@@ -318,10 +364,12 @@ Ex: 1953 is tagged as **year 1953**
   |Generated tags format:  [movement] movement    |
   |-----------------------------------------------|
 
-Ex: automatic is tagged as **automatic movement**
+Ex: automatic is tagged as "automatic movement"
 
 
-## HOW TO GENERATE WATCH CASE DIMENSIONS TAG
+===========================================
+HOW TO GENERATE WATCH CASE DIMENSIONS TAG
+===========================================
 
   |-------------------------------------------------------------------------------------------------------|
   |Properties:                      Val1                     Val2                       Val3              |
@@ -331,5 +379,5 @@ Ex: automatic is tagged as **automatic movement**
   |Generated tags format:     case size [val1], case size [val2], case size [val1] X [val2] X [val3]      |
   |-------------------------------------------------------------------------------------------------------|
 
-Ex: case dimensions of 32mm x 36mm: **case size 32mm, case size 36m, case size 32mm X 36mm**
+Ex: case dimensions of 32mm x 36mm: "case size 32mm, case size 36m, case size 32mm X 36mm"
 
