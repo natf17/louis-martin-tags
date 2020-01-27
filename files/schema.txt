@@ -279,14 +279,14 @@ HOW TO GENERATE WATCH MODEL TAG
   |--------------------------------------------------|
   |Source of values:      WATCH_MODEL_NAME           |
   |--------------------------------------------------|
-  |Generated tags format:       [model]              |
+  |Generated tags format:   model [model]            |
   |--------------------------------------------------|
 
-Ex: Datejust is tagged as "datejust"
+Ex: Datejust is tagged as "model datejust"
 
 
 ========================================
-## HOW TO GENERATE WATCH BRACELET TAG
+HOW TO GENERATE WATCH BRACELET TAG
 ========================================
 
   |--------------------------------------------------------------------------------|

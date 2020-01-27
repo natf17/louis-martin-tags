@@ -17,15 +17,19 @@ function OtherMaterial(name, color) {
 	this.color = color;
 }
 
-function DiamondStone(color, cut) {
+function DiamondStone(cut, color, clarity, carat, fancyColor) {
 	this.cut = cut;
 	this.color = color;
+	this.clarity = clarity;
+	this.carat = carat;
+	this.fancyColor = fancyColor;
 }
 
-function OtherStone(name, type, color) {
+function OtherStone(name, type, color, carat) {
 	this.name = name;
 	this.type = type;
 	this.color = color;
+	this.carat = carat;
 }
 
 function Era(era) {
@@ -53,7 +57,7 @@ function ProductBrand(brand){
 	this.brand = brand;
 }
 
-function ProductShapeOrCategory(type) {
+function ProductSpecialShapeOrCategory(type) {
 	this.type = type;
 }
 
@@ -97,12 +101,6 @@ function WatchDialStones(stone) {
 	this.stone = stone;
 }
 
-// materials is an array of objects, patterns and types are arrays of strings
-function WatchBezel(materials, patterns, types) {
-	this.materials = materials;
-	this.patterns = patterns;
-	this.types = types;
-}
 
 // GoldMaterial, SilverMaterial, or OtherMaterial
 function WatchCase(materials) {
