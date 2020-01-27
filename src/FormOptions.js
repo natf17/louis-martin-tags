@@ -64,6 +64,46 @@ var MATERIAL_OTHER_NAME = {
 
 var STONE_DIAMOND_COLOR = {
 	values: [
+		"D",
+		"E",
+		"F",
+		"G",
+		"H",
+		"I",
+		"J",
+		"K",
+		"L",
+		"M",
+		"N",
+		"O",
+		"P",
+		"Q", 
+		"R"
+
+	]
+};
+
+var STONE_DIAMOND_CLARITY = {
+	values: [
+		"IF",
+		"VVS1",
+		"VVS2",
+		"VS1",
+		"VS2",
+		"SI1",
+		"SI2",
+		"I1",
+		"I2",
+		"I3"
+	]
+};
+
+var STONE_DIAMOND_CARAT = {
+	// to be input by user
+};
+
+var STONE_DIAMOND_FANCYCOLOR = {
+	values: [
 		"Black",
 		"Champagne",
 		"Yellow",
@@ -111,6 +151,10 @@ var STONE_OTHER_COLOR = {
 		"Orange", 
 		"Lemon"
 	]
+};
+
+var STONE_OTHER_CARAT = {
+	// input by user
 };
 
 
@@ -338,11 +382,6 @@ var WATCH_DIAL_COLOR = {
 	]
 };
 
-var WATCH_BEZEL_PATTERN = {
-	values: [
-		"fluted"
-	]
-};
 
 var WATCH_PAPERS_VALUE = {
 	values: [

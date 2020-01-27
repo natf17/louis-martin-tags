@@ -39,6 +39,16 @@ enamel
 
 
 STONE_DIAMOND_COLOR
+D,E,F,...,R
+
+
+STONE_DIAMOND_CLARITY
+IF,VVS1,VVS2,VS1,VS2,SI1,SI2,I1,I2,I3
+
+STONE_DIAMOND_CARAT
+// input by user
+
+STONE_DIAMOND_FANCYCOLOR
 black, champagne, yellow, white
 
 
@@ -55,6 +65,9 @@ cabochon
 
 STONE_OTHER_COLOR
 black, blue, white, green, pink, yellow, orange, lemon
+
+STONE_OTHER_CARAT
+// input by user
 
 
 STONE_OTHER_NAME
