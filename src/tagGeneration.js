@@ -146,19 +146,7 @@ function generateEraTimePeriodTag(era) {
 
 // ACCEPTS: ProductCategory
 // RETURNS: [type]
-function generateJewelryProductTypeTag(productType) {
-	return generateSimpleTag(productType.category);
-}
-
-// ACCEPTS: ProductCategory
-// RETURNS: [type]
-function generateBridalProductTypeTag(productType) {
-	return generateSimpleTag(productType.category);
-}
-
-// ACCEPTS: ProductCategory
-// RETURNS: [type]
-function generateWatchProductTypeTag(productType) {
+function generateProductTypeTag(productType) {
 	return generateSimpleTag(productType.category);
 }
 
