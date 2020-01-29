@@ -44,9 +44,13 @@ How the tables are organized
 
 "Properties": Contains the properties needed from the user to generate the tag.
 
-"Source of values": Provides information about where the property value comes from. If the source is all caps, it refers to a variable with that name. "user-input" means that the user directly enters the value in a text box. A value of "See 'HOW TO GENERATE...'" is for complex tags that are built by adding a suffix to simpler tags. For example the bracelet material tag requires all generic material tags to be generated, and then a suffix to be added to each one.
+"Source of values": Provides information about where the property value comes from. If the source is all caps, it refers 
+to a variable with that name. "user-input" means that the user directly enters the value in a text box. A value of 
+"See 'HOW TO GENERATE...'" is for complex tags that are built by adding a suffix to simpler tags. For example the bracelet 
+material tag requires all generic material tags to be generated, and then a suffix to be added to each one.
 
-"Generated tags format": The comma-separated tags generated from the properties provided. The value in [] represents the value of the property with that name. 
+"Generated tags format": The comma-separated tags generated from the properties provided. The value in [] represents the 
+value of the property with that name. 
 
 
 ========================================
@@ -105,7 +109,8 @@ HOW TO GENERATE GENERIC STONE TAGS
   |Generated tags format:  diamond, [cut] diamond, [color]-color diamond, [clarity] diamond, [carat]ct diamond, [fancycolor] diamond |
   |----------------------------------------------------------------------------------------------------------------------------------|
 
-Ex: 2.05ct yellow round-cut diamond, VS1-clarity and G-color is tagged as: "diamond, round-cut diamond, G-color diamond, VS1 diamond, 2.05ct diamond, yellow diamond"
+Ex: 2.05ct yellow round-cut diamond, VS1-clarity and G-color is tagged as: "diamond, round-cut diamond, G-color diamond, 
+                                                                            VS1 diamond, 2.05ct diamond, yellow diamond"
 
 
 ---OTHER:
