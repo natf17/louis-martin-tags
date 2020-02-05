@@ -1,9 +1,9 @@
 
-      |============================================|
-      |                                            |
-      |             TAGGING FORMULAS               |
-      |                                            |
-      |============================================|
+      |========================================================|
+      |                                                        |
+      |             INFORMATIONAL TAGGING FORMULAS             |
+      |                                                        |
+      |========================================================|
 
 Watches and jewelry require different properties to generate different tags.
 
@@ -35,6 +35,7 @@ For watches, see the sections "HOW TO GENERATE...
 
 For bridal jewelry, see the sections "HOW TO GENERATE...
 1.  BRIDAL PRODUCT CATEGORY TAG
+2.  
 ... and all the sections mentioned above for jewelry
 
 
@@ -127,16 +128,16 @@ Ex: 2.05ct yellow round-cut diamond, VS1-clarity and G-color is tagged as: "diam
 
 
 ---OTHER:
-  |---------------------------------------------------------------------------------------------------|
-  |Properties:              Type                 Color                Name                Carat       |
-  |---------------------------------------------------------------------------------------------------|
-  |Source of values:        STONE_OTHER_TYPE     STONE_OTHER_COLOR    STONE_OTHER_NAME    user-input  |
-  |===================================================================================================|
-  |===================================================================================================|
-  |Generated tags format:   [name], [type], [color] [name], [carat]ct [name]                          |
-  |---------------------------------------------------------------------------------------------------|
-  |Function:                generateOtherStoneTag(OtherStone)                                         |
-  |---------------------------------------------------------------------------------------------------|
+  |-----------------------------------------------------------------------------------------------|
+  |Properties:              Type               Color               Name               Carat       |
+  |-----------------------------------------------------------------------------------------------|
+  |Source of values:        STONE_OTHER_TYPE   STONE_OTHER_COLOR   STONE_OTHER_NAME   user-input  |
+  |===============================================================================================|
+  |===============================================================================================|
+  |Generated tags format:   [name], [type], [color] [name], [carat]ct [name]                      |
+  |-----------------------------------------------------------------------------------------------|
+  |Function:                generateOtherStoneTag(OtherStone)                                     |
+  |-----------------------------------------------------------------------------------------------|
 
 Ex: yellow spessartite garnet is tagged as "garnet, spessartite, yellow garnet"
 
@@ -181,18 +182,19 @@ Ex: bracelet is tagged as "bracelet"
 HOW TO GENERATE BRIDAL PRODUCT CATEGORY TAG
 ==============================================
 
-  |------------------------------------------------------------------|
-  |Properties:              Type                                     |
-  |------------------------------------------------------------------|
-  |Source of values:        BRIDAL_PRODUCT_CATEGORY                  |
-  |==================================================================|
-  |==================================================================|
-  |Generated tags format:   [type]                                   |
-  |------------------------------------------------------------------|
-  |Function:                generateProductTypeTag(ProductCategory)  |
-  |------------------------------------------------------------------|
+  |------------------------------------------------------------------------------|
+  |Properties:              Type                                                 |
+  |------------------------------------------------------------------------------|
+  |Source of values:        BRIDAL_PRODUCT_CATEGORY                              |
+  |==============================================================================|
+  |==============================================================================|
+  |Generated tags format:   [type]...                                            |
+  |------------------------------------------------------------------------------|
+  |Function:                generateBridalProductTypeTag(BridalProductCategory)  |
+  |------------------------------------------------------------------------------|
 
 Ex: engagement-rings is tagged as "engagement-rings"
+    mens wedding bands is tagged as "wedding-bands", "mens-wedding-bands"
 
 
 =============================================

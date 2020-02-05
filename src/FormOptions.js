@@ -426,7 +426,9 @@ var JEWELRY_PRODUCT_CATEGORY = {
 var BRIDAL_PRODUCT_CATEGORY = {
 	values: [
 		"engagement-rings",
-		"wedding-bands"
+		"wedding-bands",
+		"mens-wedding-bands",
+		"womens-wedding-bands"
 	]
 };
 

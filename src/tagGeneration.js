@@ -150,6 +150,25 @@ function generateProductTypeTag(productType) {
 	return generateSimpleTag(productType.category);
 }
 
+// ACCEPTS: ProductCategory
+// RETURNS: [type]...
+function generateBridalProductTypeTag(productType) {
+	var tags = [];
+	if(productType.category != null) {
+		tags.push(productType.category);
+		if(productType.category == "mens-wedding-bands" || productType.category == "womens-wedding-bands") {
+			tags.push("wedding-bands");
+		}
+	}
+	return tags;
+}
+
+// ACCEPTS: ProductCategory
+// RETURNS: [type]
+function generateProductTypeTag(productType) {
+	return generateSimpleTag(productType.category);
+}
+
 // RETURNS: [value]
 function generateSimpleTag(value) {
 	var tags = [];
