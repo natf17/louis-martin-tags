@@ -11,6 +11,7 @@ For jewelry, see the sections "HOW TO GENERATE...
 1.  GENERIC MATERIAL TAGS
 2.  GENERIC STONE TAGS
 3.  ERA/TIME PERIOD TAG (for estate)
+4.  DECADE (for estate)
 4.  JEWELRY PRODUCT CATEGORY TAG
 5.  PRODUCT GENDER TAG
 6.  PRODUCT CERTIFIED TAG
@@ -35,7 +36,6 @@ For watches, see the sections "HOW TO GENERATE...
 
 For bridal jewelry, see the sections "HOW TO GENERATE...
 1.  BRIDAL PRODUCT CATEGORY TAG
-2.  
 ... and all the sections mentioned above for jewelry
 
 
@@ -143,13 +143,31 @@ Ex: yellow spessartite garnet is tagged as "garnet, spessartite, yellow garnet"
 
 
 ======================================
-HOW TO GENERATE ERA/TIME PERIOD TAG
+HOW TO GENERATE DECADE TAG (estate)
 ======================================
+
+  |----------------------------------------------------------------|
+  |Properties:              Decade                                 |
+  |----------------------------------------------------------------|
+  |Source of values:        ESTATE_DECADE                          |
+  |================================================================|
+  |================================================================|
+  |Generated tags format:   circa [decade]                         |
+  |----------------------------------------------------------------|
+  |Function:                generateEstateDecadeTag(EstateDecade)  |
+  |----------------------------------------------------------------|
+
+Ex: 1940s is tagged as "circa 1940s"
+
+
+===============================================
+HOW TO GENERATE ERA/TIME PERIOD TAG (estate)
+===============================================
 
   |--------------------------------------------------------|
   |Properties:              Era                            |
   |--------------------------------------------------------|
-  |Source of values:        TIME_PERIOD                    |
+  |Source of values:        ESTATE_TIME_PERIOD             |
   |========================================================|
   |========================================================|
   |Generated tags format:   [era] era                      |

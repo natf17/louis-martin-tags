@@ -10,55 +10,55 @@ var MATERIAL_GOLD_PURITY = {
 
 var MATERIAL_GOLD_COLOR = {
 	values: [
-		"Rose",
-		"White",
-		"Yellow"
+		"rose",
+		"white",
+		"yellow"
 	]
 };
 
 var MATERIAL_GOLD_COMPOSITION = {
 	values: [
-		"Filled",
-		"Plated",
-		"Top"
+		"filled",
+		"plated",
+		"top"
 	]
 };
 
 var MATERIAL_SILVER_COMPOSITION = {
 	values: [
-		"Sterling",
-		"Plated",
-		"Filled"
+		"sterling",
+		"plated",
+		"filled"
 	]
 };
 
 var WATCH_STRAP_MATERIAL_LEATHER_COLOR = {
 	values: [
-		"Black",
-		"Brown"
+		"black",
+		"brown"
 	]
 };
 
 var WATCH_STRAP_MATERIAL_LEATHER_SOURCE = {
 	values: [
-		"Alligator"
+		"alligator"
 	]
 };
 
 var MATERIAL_OTHER_COLOR = {
 	values: [
-		"Black",
-		"Blue",
-		"Green"
+		"black",
+		"blue",
+		"green"
 	]
 };
 
 var MATERIAL_OTHER_NAME = {
 	values: [
-		"Vermeil",
-		"Platinum",
-		"Stainless steel",
-		"Enamel"
+		"vermeil",
+		"platinum",
+		"stainless steel",
+		"enamel"
 	]
 };
 
@@ -400,8 +400,7 @@ var PRODUCT_YEAR = {
 var WATCH_MOVEMENT = {
 	values: [
 		"automatic",
-		"mechanical",
-		"bumper mechanical",
+		"manual",
 		"quartz"
 	]
 };
@@ -439,12 +438,23 @@ var WATCH_PRODUCT_CATEGORY = {
 	]
 };
 
-var TIME_PERIOD = {
+var ESTATE_TIME_PERIOD = {
 	values: [
 		"art deco",
 		"edwardian",
 		"retro",
 		"victorian"
+	]
+};
+
+var ESTATE_DECADE = {
+	values: [
+		"1920s",
+		"1930s",
+		"1940s",
+		"1950s",
+		"1960s",
+		"1970s"
 	]
 };
 

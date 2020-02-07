@@ -1,0 +1,184 @@
+
+      |=============================================|
+      |                                             |
+      |             FILTER TAG FORMULAS             |
+      |                                             |
+      |=============================================|
+
+
+***************************************************************************************************************************************
+This guide assumes that tags have been added to the product exactly as defined in schema_info_tags.txt using functions equivalent to 
+the samples in /src/tagGeneration, using values from /src/FormOptions.js
+***************************************************************************************************************************************
+
+
+Once informational tags have been determined for a product, the filter tags can be determined from the informational tags and product type 
+exclusively. That is the approach described here.
+
+All the filter tags are organized in objects by prefix in /src/FilterTagOptions.js.
+
+What follows are two tables that break down when a given filter should be added to the product in question.
+   - Table 1 narrows down the filter tag prefixes that are relevant by looking at the product category and informational tags. The product 
+     can match multiple rows.
+   - Table 2 describes the requirements that must be met for a specific filter tag to be added. 
+
+
+
+
+
+Table 1.
+  |-----------------------------------------------------------------------------------------------------------|
+  |Product Type              Informational tags required                 Filter tag prefixes that apply       |
+  |-----------------------------------------------------------------------------------------------------------|
+  | Bridal                             N/A                                       $f$bridalcat$                |
+  |                                                                              $f$stones$                   |
+  |                                                                              $f$metals$                   |
+  |-----------------------------------------------------------------------------------------------------------|
+  | Bridal                         Wedding bands                                 $f$wedbandcat$               |
+  |-----------------------------------------------------------------------------------------------------------|
+  | Fine Jewelry                      N/A                                        $f$jewelrycat$               |
+  |                                                                              $f$stones$                   |
+  |                                                                              $f$metals$                   |
+  |-----------------------------------------------------------------------------------------------------------|
+  | Estate                            N/A                                        $f$jewelrycat$               |
+  |                                                                              $f$stones$                   |
+  |                                                                              $f$metals$                   |
+  |                                                                              $f$era$                      |
+  |-----------------------------------------------------------------------------------------------------------|
+  | Watches                           N/A                                        $f$watchescat$$              |
+  |                                                                              $f$brand$                    |
+  |                                                                              $f$watchescasematerial$      |
+  |                                                                              $f$watchesyear$              |
+  |                                                                              $f$watchescasesize$          |
+  |                                                                              $f$watchesmovement$          |
+  |-----------------------------------------------------------------------------------------------------------|
+
+Table 2.
+  |--------------------------------------------------------------------------------------------------------------|
+  |Filter tag prefix        Filter tag value                                Informational tags required          |
+  |--------------------------------------------------------------------------------------------------------------|
+  | $f$bridalcat$           Engagement Rings     - - - - - - - - - - - - - - - - - engagement-rings              |
+  |	                    Mens Wedding Bands   - - - - - - - - - - - - - - - - - mens-wedding-bands            |
+  |		            Wedding Bands        - - - - - - - - - - - - - - - - - wedding-bands                 |
+  |                         Womens Wedding Bands - - - - - - - - - - - - - - - - - women's-wedding-bands         |
+  |--------------------------------------------------------------------------------------------------------------|
+  | $f$wedbandcat$          Mens   - - - - - - - - - - - - - - - - - - - - - - - - mens-wedding-bands            |
+  |                         Womens - - - - - - - - - - - - - - - - - - - - - - - - women's-wedding-bands         |
+  |--------------------------------------------------------------------------------------------------------------|
+  | $f$era$                 1920s     - - - - - - - - - - - - - - - - - - - - - -  circa 1920s                   |
+  |	                    1930s     - - - - - - - - - - - - - - - - - - - - - -  circa 1930s                   |
+  |		            1940s     - - - - - - - - - - - - - - - - - - - - - -  circa 1940s                   |
+  |                         1950s     - - - - - - - - - - - - - - - - - - - - - -  circa 1950s                   |
+  |                         1960s     - - - - - - - - - - - - - - - - - - - - - -  circa 1960s                   |
+  |                         1970s     - - - - - - - - - - - - - - - - - - - - - -  circa 1970s                   |
+  |                         Art Deco  - - - - - - - - - - - - - - - - - - - - - -  art deco era                  |
+  |                         Edwardian - - - - - - - - - - - - - - - - - - - - - -  edwardian era                 |
+  |                         Retro     - - - - - - - - - - - - - - - - - - - - - -  retro era                     |
+  |                         Victorian - - - - - - - - - - - - - - - - - - - - - -  victorian era                 |
+  |--------------------------------------------------------------------------------------------------------------|
+  | $f$jewelrycat$          Bracelets          - - - - - - - - - - - - - - - - -   bracelet                      |
+  |	                    Brooches/Pins      - - - - - - - - - - - - - - - - -   brooch/pin                    |
+  |		            Earrings           - - - - - - - - - - - - - - - - -   earrings                      |
+  |                         Necklaces/Pendants - - - - - - - - - - - - - - - - -   necklace/pendant              |
+  |                         Rings              - - - - - - - - - - - - - - - - -   ring                          |
+  |--------------------------------------------------------------------------------------------------------------|
+  | $f$metals$              Gold        - - - - - - - - - - - - - - - - - - - - -  gold                          |
+  |	                    Platinum    - - - - - - - - - - - - - - - - - - - - -  platinum                      |
+  |		            Rose gold   - - - - - - - - - - - - - - - - - - - - -  rose gold                     |
+  |                         White gold  - - - - - - - - - - - - - - - - - - - - -  white gold                    |
+  |                         Yellow gold - - - - - - - - - - - - - - - - - - - - -  yellow gold                   |
+  |--------------------------------------------------------------------------------------------------------------|
+  | $f$stones$              Amethyst - - - - - - - - - - - - - - - - - - - - - - - amethyst                      |
+  |	                    Coral    - - - - - - - - - - - - - - - - - - - - - - - coral                         |
+  |		            Diamond  - - - - - - - - - - - - - - - - - - - - - - - diamond                       |
+  |                         Emerald  - - - - - - - - - - - - - - - - - - - - - - - emerald                       |
+  |                         Jade     - - - - - - - - - - - - - - - - - - - - - - - jade                          |
+  |                         Pearl    - - - - - - - - - - - - - - - - - - - - - - - pearl                         |
+  |                         Ruby     - - - - - - - - - - - - - - - - - - - - - - - ruby                          |
+  |                         Sapphire - - - - - - - - - - - - - - - - - - - - - - - sapphire                      |
+  |--------------------------------------------------------------------------------------------------------------|
+  | $f$brand$               Audemars Piguet       - - - - - - - - - - - - - - - -  audemars piguet               |
+  |	                    Benrus                - - - - - - - - - - - - - - - -  benrus                        |
+  |		            Cartier               - - - - - - - - - - - - - - - -  cartier                       |
+  |                         Girard Perregaux      - - - - - - - - - - - - - - - -  girard-perregaux              |
+  |                         Hamilton              - - - - - - - - - - - - - - - -  hamilton                      |
+  |                         Jules Jurgensen       - - - - - - - - - - - - - - - -  jules jurgensen               |
+  |                         Longines              - - - - - - - - - - - - - - - -  longines                      |
+  |                         Movado                - - - - - - - - - - - - - - - -  movado                        |
+  |                         Omega                 - - - - - - - - - - - - - - - -  omega                         |
+  |                         Patek Philippe        - - - - - - - - - - - - - - - -  patek philippe                |
+  |                         Rolex                 - - - - - - - - - - - - - - - -  rolex                         |
+  |                         Tag Heuer             - - - - - - - - - - - - - - - -  tag heuer                     |
+  |                         Ulysse Nardin         - - - - - - - - - - - - - - - -  ulysse nardin                 |
+  |                         Universal Geneve      - - - - - - - - - - - - - - - -  universal geneve              |
+  |                         Vacheron & Constantin - - - - - - - - - - - - - - - -  vacheron & constantin         |
+  |                         Wittnauer             - - - - - - - - - - - - - - - -  wittnauer                     |
+  |--------------------------------------------------------------------------------------------------------------|
+  | $f$watchescasematerial$ Gold            - - - - - - - - - - - - - - - - - - -  gold case material            |
+  |	                    Platinum        - - - - - - - - - - - - - - - - - - -  platinum case material        |
+  |		            Rose gold       - - - - - - - - - - - - - - - - - - -  rose gold case material       |
+  |                         Stainless steel - - - - - - - - - - - - - - - - - - -  stainless steel case material |
+  |                         White gold      - - - - - - - - - - - - - - - - - - -  white gold case material      |
+  |                         Yellow gold     - - - - - - - - - - - - - - - - - - -  yellow gold case material     |
+  |--------------------------------------------------------------------------------------------------------------|       
+  | $f$watchescasesize$     11-15mm - - - - - - - - - - - - - - - - - - - - - - -  case size 11mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 15mm                |
+  |                                                                                                              |
+  |	                    16-20mm - - - - - - - - - - - - - - - - - - - - - - -  case size 16mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 20mm                |
+  |                                                                                                              |
+  |		            21-25mm - - - - - - - - - - - - - - - - - - - - - - -  case size 21mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 25mm                |
+  |                                                                                                              |
+  |                         26-30mm - - - - - - - - - - - - - - - - - - - - - - -  case size 26mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 30mm                |
+  |                                                                                                              |
+  |                         31-35mm - - - - - - - - - - - - - - - - - - - - - - -  case size 31mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 35mm                |
+  |                                                                                                              |
+  |                         36-40mm - - - - - - - - - - - - - - - - - - - - - - -  case size 36mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 40mm                |
+  |                                                                                                              |
+  |                         41-45mm - - - - - - - - - - - - - - - - - - - - - - -  case size 41mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 45mm                |
+  |                                                                                                              |
+  |                         46-50mm - - - - - - - - - - - - - - - - - - - - - - -  case size 46mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 50mm                |
+  |                                                                                                              |
+  |                         51-55mm - - - - - - - - - - - - - - - - - - - - - - -  case size 51mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 55mm                |
+  |                                                                                                              |
+  |                         56-60mm - - - - - - - - - - - - - - - - - - - - - - -  case size 56mm                |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size ...                 |
+  |                                 - - - - - - - - - - - - - - - - - - - - - - -  case size 60mm                |
+  |--------------------------------------------------------------------------------------------------------------|
+  | $f$watchescat$          Preowned - - - - - - - - - - - - - - - - - - - - - - -  preowned                     |
+  |	                    Vintage  - - - - - - - - - - - - - - - - - - - - - - -  vintage                      |
+  |--------------------------------------------------------------------------------------------------------------|  
+  | $f$watchesmovement$     Automatic - - - - - - - - - - - - - - - - - - - - - -  automatic movement            |
+  |	                    Manual  - - - - - - - - - - - - - - - - - - - - - - -  manual movement               |
+  |	                    Quartz  - - - - - - - - - - - - - - - - - - - - - - -  quartz movement               |
+  |--------------------------------------------------------------------------------------------------------------|  
+  | $f$watchesyear$         1910s     - - - - - - - - - - - - - - - - - - - - - -  circa 1920s                   |
+  |	                    1920s     - - - - - - - - - - - - - - - - - - - - - -  circa 1930s                   |
+  |	                    1930s     - - - - - - - - - - - - - - - - - - - - - -  circa 1930s                   |
+  |		            1940s     - - - - - - - - - - - - - - - - - - - - - -  circa 1940s                   |
+  |                         1950s     - - - - - - - - - - - - - - - - - - - - - -  circa 1950s                   |
+  |                         1960s     - - - - - - - - - - - - - - - - - - - - - -  circa 1960s                   |
+  |                         1970s     - - - - - - - - - - - - - - - - - - - - - -  circa 1970s                   |
+  |                         1980s     - - - - - - - - - - - - - - - - - - - - - -  circa 1970s                   |
+  |                         1990s     - - - - - - - - - - - - - - - - - - - - - -  circa 1970s                   |
+  |                         2000s     - - - - - - - - - - - - - - - - - - - - - -  circa 1970s                   |
+  |                         2010s     - - - - - - - - - - - - - - - - - - - - - -  circa 1970s                   |
+  |--------------------------------------------------------------------------------------------------------------|
+
+

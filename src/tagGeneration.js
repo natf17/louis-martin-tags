@@ -131,9 +131,22 @@ function generateOtherStoneTag(other) {
 	return tags;
 }
 
+// ACCEPTS: EstateDecade
+// RETURNS: circa [decade]
+function generateEstateDecadeTag(decade) {
+	var tags = [];
+	var prefix = "circa";
+
+	if(decade.decade != null) {
+		tags.push(prefix + " " + decade.decade);
+	}
+
+	return tags;
+}
+
 // ACCEPTS: Era
 // RETURNS: [era] era
-function generateEraTimePeriodTag(era) {
+function generateEstateDecadeTag(era) {
 	var tags = [];
 	var suffix = "era";
 

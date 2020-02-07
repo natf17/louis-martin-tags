@@ -36,6 +36,10 @@ function Era(era) {
 	this.era = era;
 }
 
+function EstateDecade(decade) {
+	this.decade = decade;
+}
+
 function ProductCategory(category){
 	this.category = category;
 }
