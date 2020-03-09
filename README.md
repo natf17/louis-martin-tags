@@ -7,5 +7,5 @@ To ensure consistency throughout the products in the store, this project aims to
 - See the variables and their values [here](src/FormOptions.js).
 
 ## Filter tags
-- See the rules [here](files/schema_filters_tags.txt).
-- See the variables and their values [here](src/FilterTagOptions.js).
+- See the rules [here](files/schema_filter_tags.txt).
+- See the variables and their values [here](src/FIlterTagOptions.js).
