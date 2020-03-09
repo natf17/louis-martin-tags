@@ -8,7 +8,7 @@
 
 ***************************************************************************************************************************************
 This guide assumes that tags have been added to the product exactly as defined in schema_info_tags.txt using functions equivalent to 
-the samples in /src/tagGeneration, using values from /src/FormOptions.js
+the samples in /src/tagGeneration.js, using values from /src/FormOptions.js
 ***************************************************************************************************************************************
 
 

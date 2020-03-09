@@ -129,13 +129,14 @@ var STONE_DIAMOND_CUT = {
 
 var STONE_OTHER_TYPE = {
 	values: [
-		"Angel", //coral
+		"Angel coral", //coral
 		"Natural", //(coral, turquoise)
 		"Spessartite", //(garnet)
-		"Akoya", //pearl
+		"Akoya pearl", //pearl
 		"Mother of pearl", //pearl
-		"Tahitian", //pearl
-		"South sea", //pearl
+		"Tahitian pearl", //pearl
+		"South sea pearl", //pearl
+		"Mabe pearl", //pearl
 		"Cabochon"
 	]
 };
@@ -384,6 +385,7 @@ var WATCH_DIAL_COLOR = {
 
 
 var WATCH_PAPERS_VALUE = {
+	// use a checkbox... values not used
 	values: [
 		"papers",
 		"no papers"
@@ -458,15 +460,6 @@ var ESTATE_DECADE = {
 	]
 };
 
-var PRODUCT_CONDITION = {
-	values: [
-		"excellent",
-		"good",
-		"very good",
-		"victorian"
-	]
-};
-
 var PRODUCT_GENDER = {
 	values: [
 		"mens",
@@ -476,16 +469,12 @@ var PRODUCT_GENDER = {
 };
 
 var PRODUCT_CERTIFIED = {
+	// a checkbox?
 	values: [
-		"certified"
+		"yes"
 	]
 };
 
-var PRODUCT_CERTIFIED_TYPE = {
-	values: [
-		"gal"
-	]
-};
 
 var JEWELRY_BRAND_NAME = {
 	values: [

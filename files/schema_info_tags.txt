@@ -43,15 +43,23 @@ For bridal jewelry, see the sections "HOW TO GENERATE...
 How the tables are organized 
 -------------------------------
 
-"Properties": Contains the properties needed from the user to generate the tag.
+"Properties": Contains the properties (for whatever it is we're tagging) needed from the user to generate the tags.
 
-"Source of values": Provides information about where the property value comes from. If the source is all caps, it refers 
-to a variable with that name. "user-input" means that the user directly enters the value in a text box. A value of 
-"See 'HOW TO GENERATE...'" is for complex tags that are built by adding a suffix to simpler tags. For example the bracelet 
-material tag requires all generic material tags to be generated, and then a suffix to be added to each one.
+"Source of values": Provides information about where the property value comes from. There are three possibilities: 
+	- if the source is all caps, it refers to a variable (in the file /src/FormOptions.js) with that name.
+          EX: MATERIAL_GOLD_PURITY -> values will come from the values in the MATERIAL_GOLD_PURITY variable
 
-"Generated tags format": The comma-separated tags generated from the properties provided. The value in [] represents the 
-value of the property with that name. 
+	- "user-input" means that the user directly enters the value in a text box
+
+	- "See 'HOW TO GENERATE...'" is for properties whose tags will be created using a previous rule, and then
+           A suffix is added to all the tags generated using such rule.
+           Ex: "HOW TO GENERATE GENERIC MATERIALS TAGS" for Materials under the bracelet sections means:
+ 
+		1. Generate tags as outlined in "HOW TO GENERATE GENERIC MATERIAL TAGS"
+		2. Change each tag's prefix as described in the table.
+
+"Generated tags": The comma-separated tags generated from the properties provided. [property] represents the 
+value of that property
 
 "Function": the name of the sample function in /src/tagGeneration.js. The arguments are objects defined in /src/TagObjects.js.
 
@@ -67,12 +75,15 @@ HOW TO GENERATE GENERIC MATERIAL TAGS
   |Source of values:        MATERIAL_GOLD_PURITY   MATERIAL_GOLD_COLOR   MATERIAL_GOLD_COMPOSITION  |
   |=================================================================================================|
   |=================================================================================================|
-  |Generated tags format:   gold, [composition] gold, [color] gold, [purity]                        |
+  |Generated tags:          $INFO$bmat$gold        						    |
+  |                         $INFO$bmat$[composition] gold                                           |
+  |                         $INFO$bmat$[color] gold                                                 |
+  |                         $INFO$bmat_goldpur$[purity]                                             |
   |-------------------------------------------------------------------------------------------------|
   |Function:                generateGoldMaterialTagStrategy(GoldMaterial)                           |
   |-------------------------------------------------------------------------------------------------|
 
-Ex: an 18kt yellow gold material is tagged as: "gold, yellow gold, 18kt"
+Ex: an 18kt yellow gold material is tagged as: "$INFO$bmat$gold, $INFO$bmat$yellow gold, $INFO$bmat_goldpur$18kt"
 
 ---SILVER: 
 
@@ -82,12 +93,13 @@ Ex: an 18kt yellow gold material is tagged as: "gold, yellow gold, 18kt"
   |Source of values:        MATERIAL_SILVER_COMPOSITION                       |
   |===========================================================================|
   |===========================================================================|
-  |Generated tags format:   silver, [composition] silver                      |
+  |Generated tags:          $INFO$bmat$silver                                 |
+  |		            $INFO$bmat$[composition] silver                   |
   |---------------------------------------------------------------------------|
   |Function:                generateSilverMaterialTagStrategy(SilverMaterial) |
   |---------------------------------------------------------------------------|
 
-Ex: a sterling silver material is tagged as: "silver, sterling silver"
+Ex: a sterling silver material is tagged as: "$INFO$bmat$silver, $INFO$bmat$sterling silver"
 
 
 ---OTHER:
@@ -98,12 +110,13 @@ Ex: a sterling silver material is tagged as: "silver, sterling silver"
   |Source of values:        MATERIAL_OTHER_COLOR   MATERIAL_OTHER_NAME       |
   |==========================================================================|
   |==========================================================================|
-  |Generated tags format:   [name], [color] [name]                           |
+  |Generated tags:          $INFO$bmat$[name]				     |
+  |                         $INFO$bmat$[color] [name]                        |
   |--------------------------------------------------------------------------|
   |Function:                generateOtherMaterialTagStrategy(OtherMaterial)  |
   |--------------------------------------------------------------------------|
 
-Ex: green enamel is tagged as "enamel, green enamel"
+Ex: green enamel is tagged as "$INFO$bmat$enamel, $INFO$bmat$green enamel"
 
 
 =====================================
@@ -118,13 +131,19 @@ HOW TO GENERATE GENERIC STONE TAGS
   |Source of values:        STONE_DIAMOND_CUT   STONE_DIAMOND_COLOR   STONE_DIAMOND_CLARITY   user-input   STONE_DIAMOND_FANCYCOLOR   |
   |===================================================================================================================================|
   |===================================================================================================================================|
-  |Generated tags format:   diamond, [cut] diamond, [color]-color diamond, [clarity] diamond, [carat]ct diamond, [fancycolor] diamond |
+  |Generated tags:          $INFO$stones$diamond										      |
+  |			    $INFO$stones$[cut] diamond										      |
+  | 			    $INFO$stones$[color]-color diamond									      |
+  |			    $INFO$stones$[clarity] diamond									      |
+  |			    $INFO$stones$[carat]ct diamond									      |
+  |			    $INFO$stones_scolor$[fancycolor] diamond 								      |
   |-----------------------------------------------------------------------------------------------------------------------------------|
   |Function:                generateDiamondStoneTag(DiamondStone)                                                                     |
   |-----------------------------------------------------------------------------------------------------------------------------------|
 
-Ex: 2.05ct yellow round-cut diamond, VS1-clarity and G-color is tagged as: "diamond, round-cut diamond, G-color diamond, 
-                                                                            VS1 diamond, 2.05ct diamond, yellow diamond"
+Ex: 2.05ct yellow round-cut diamond, VS1-clarity and G-color is tagged as: "$INFO$stones$diamond, $INFO$stones$round-cut diamond, 
+									    $INFO$stones$G-color diamond, $INFO$stones$VS1 diamond, 
+         								    $INFO$stones$2.05ct diamond, $INFO$stones_scolor$yellow diamond"
 
 
 ---OTHER:
@@ -134,12 +153,15 @@ Ex: 2.05ct yellow round-cut diamond, VS1-clarity and G-color is tagged as: "diam
   |Source of values:        STONE_OTHER_TYPE   STONE_OTHER_COLOR   STONE_OTHER_NAME   user-input  |
   |===============================================================================================|
   |===============================================================================================|
-  |Generated tags format:   [name], [type], [color] [name], [carat]ct [name]                      |
+  |Generated tags:          $INFO$stones$[name]                                                   |
+  |                         $INFO$stones_type$[type]                                              |
+  |                         $INFO$stones_scolor$[color] [name]       				  |
+  |                         $INFO$stones$[carat]ct [name]                                         |
   |-----------------------------------------------------------------------------------------------|
   |Function:                generateOtherStoneTag(OtherStone)                                     |
   |-----------------------------------------------------------------------------------------------|
 
-Ex: yellow spessartite garnet is tagged as "garnet, spessartite, yellow garnet"
+Ex: yellow spessartite garnet is tagged as "$INFO$stones_type$garnet, $INFO$stones$spessartite, $INFO$stones_scolor$yellow garnet"
 
 
 ======================================
@@ -152,12 +174,12 @@ HOW TO GENERATE DECADE TAG (estate)
   |Source of values:        ESTATE_DECADE                          |
   |================================================================|
   |================================================================|
-  |Generated tags format:   circa [decade]                         |
+  |Generated tags:          $INFO$circa$[decade]                   |
   |----------------------------------------------------------------|
   |Function:                generateEstateDecadeTag(EstateDecade)  |
   |----------------------------------------------------------------|
 
-Ex: 1940s is tagged as "circa 1940s"
+Ex: 1940s is tagged as "$INFO$circa$1940s"
 
 
 ===============================================
@@ -170,12 +192,12 @@ HOW TO GENERATE ERA/TIME PERIOD TAG (estate)
   |Source of values:        ESTATE_TIME_PERIOD             |
   |========================================================|
   |========================================================|
-  |Generated tags format:   [era] era                      |
+  |Generated tags:          $INFO$era$[era] era            |
   |--------------------------------------------------------|
   |Function:                generateEraTimePeriodTag(Era)  |
   |--------------------------------------------------------|
 
-Ex: edwardian era is tagged as "edwardian era"
+Ex: edwardian era is tagged as "$INFO$era$edwardian era"
 
 
 ===============================================
@@ -188,12 +210,12 @@ HOW TO GENERATE JEWELRY PRODUCT CATEGORY TAG
   |Source of values:        JEWELRY_PRODUCT_CATEGORY                 |
   |==================================================================|
   |==================================================================|
-  |Generated tags format:   [type]                                   |
+  |Generated tags:          $INFO$cat$[type]                         |
   |------------------------------------------------------------------|
   |Function:                generateProductTypeTag(ProductCategory)  |
   |------------------------------------------------------------------|
 
-Ex: bracelet is tagged as "bracelet"
+Ex: bracelet is tagged as "$INFO$cat$bracelet"
 
 
 ==============================================
@@ -206,13 +228,16 @@ HOW TO GENERATE BRIDAL PRODUCT CATEGORY TAG
   |Source of values:        BRIDAL_PRODUCT_CATEGORY                              |
   |==============================================================================|
   |==============================================================================|
-  |Generated tags format:   [type]...                                            |
+  |Generated tags:          $INFO$cat$[type]                                     |
+  |                         if "$INFO$cat$mens-wedding-bands" or                 |
+  |			    "$INFO$cat$womens-wedding-bands" is chosen,          | 
+  |			    "$INFO$cat$wedding-bands" will also be added         |
   |------------------------------------------------------------------------------|
   |Function:                generateBridalProductTypeTag(BridalProductCategory)  |
   |------------------------------------------------------------------------------|
 
-Ex: engagement-rings is tagged as "engagement-rings"
-    mens wedding bands is tagged as "wedding-bands", "mens-wedding-bands"
+Ex: engagement-rings is tagged as "$INFO$cat$engagement-rings"
+    mens wedding bands is tagged as "$INFO$cat$wedding-bands", "$INFO$cat$mens-wedding-bands"
 
 
 =============================================
@@ -225,30 +250,12 @@ HOW TO GENERATE WATCH PRODUCT CATEGORY TAG
   |Source of values:        WATCH_PRODUCT_CATEGORY                   |
   |==================================================================|
   |==================================================================|
-  |Generated tags format:   [type]                                   |
+  |Generated tags:          $INFO$cat$[type]                         |
   |------------------------------------------------------------------|
   |Function:                generateProductTypeTag(ProductCategory)  |
   |------------------------------------------------------------------|
 
-Ex: preowned is tagged as "preowned"
-
-
-========================================
-HOW TO GENERATE PRODUCT CONDITION TAG
-========================================
-
-  |------------------------------------------------------------------------|
-  |Properties:              Condition                                      |
-  |------------------------------------------------------------------------|
-  |Source of values:        PRODUCT_CONDITION                              |
-  |========================================================================|
-  |========================================================================|
-  |Generated tags format:   condition [condition]                          |
-  |------------------------------------------------------------------------|
-  |Function:                generateProductConditionTag(ProductCondition)  |
-  |------------------------------------------------------------------------|
-
-Ex: excellent is tagged as "condition excellent"
+Ex: preowned is tagged as "$INFO$cat$preowned"
 
 
 =====================================
@@ -261,7 +268,7 @@ HOW TO GENERATE PRODUCT GENDER TAG
   |Source of values:        PRODUCT_GENDER                           |
   |==================================================================|
   |==================================================================|
-  |Generated tags format:   [gender]                                 |
+  |Generated tags:          $INFO$gdr$[gender]                       |
   |------------------------------------------------------------------|
   |Function:                generateProductGenderTag(ProductGender)  |
   |------------------------------------------------------------------|
@@ -274,17 +281,17 @@ HOW TO GENERATE PRODUCT CERTIFIED TAG
 ========================================
 
   |------------------------------------------------------------------------|
-  |Properties:              Certified           Type                       |
+  |Properties:              Certified                                      |
   |------------------------------------------------------------------------|
-  |Source of values:        PRODUCT_CERTIFIED   PRODUCT_CERTIFIED_TYPE     |
+  |Source of values:        PRODUCT_CERTIFIED                      	   |
   |========================================================================|
   |========================================================================|
-  |Generated tags format:   [certified], [type] certified                  |
+  |Generated tags format:   $INFO$isCertified                              |
   |------------------------------------------------------------------------|
   |Function:                generateProductCertifiedTag(ProductCertified)  |
   |------------------------------------------------------------------------|
 
-Ex: gal-certified is tagged as **certified, gal certified**
+Ex: a gal certified piece is tagged as "$INFO$isCertified"
 
 
 ====================================
@@ -297,12 +304,12 @@ HOW TO GENERATE JEWELRY BRAND TAG
   |Source of values:        JEWELRY_BRAND_NAME                     |
   |================================================================|
   |================================================================|
-  |Generated tags format:   [brand]                                |
+  |Generated tags:          $INFO$br$[brand]                       |
   |----------------------------------------------------------------|
   |Function:                generateProductBrandTag(ProductBrand)  |
   |----------------------------------------------------------------|
 
-Ex: Chimento is tagged as "chimento"
+Ex: Chimento is tagged as "$INFO$br$chimento"
 
 
 =========================================
@@ -315,12 +322,12 @@ HOW TO GENERATE SPECIAL COLLECTION TAG
   |Source of values:        SPECIAL_COLLECTION_TAG                                       |
   |======================================================================================|
   |======================================================================================|
-  |Generated tags format:   [type]                                                       |
+  |Generated tags:          $INFO$sp_coll$[type]                                         |
   |--------------------------------------------------------------------------------------|
   |Function:                generateSpecialCollectionTag(ProductSpecialShapeOrCategory)  |
   |--------------------------------------------------------------------------------------|
 
-Ex: animal is tagged as "animal"
+Ex: animal is tagged as "$INFO$sp_coll$animal"
 
 
 ==================================
@@ -333,12 +340,12 @@ HOW TO GENERATE WATCH BRAND TAG
   |Source of values:        WATCH_BRAND_NAME                       |
   |================================================================|
   |================================================================|
-  |Generated tags format:   [brand]                                |
+  |Generated tags:          $INFO$br$[brand]                       |
   |----------------------------------------------------------------|
   |Function:                generateProductBrandTag(ProductBrand)  |
   |----------------------------------------------------------------|
 
-Ex: elgin is tagged as "elgin"
+Ex: elgin is tagged as "$INFO$br$elgin"
 
 
 ==================================
@@ -351,12 +358,12 @@ HOW TO GENERATE WATCH MODEL TAG
   |Source of values:        WATCH_MODEL_NAME                   |
   |============================================================|
   |============================================================|
-  |Generated tags format:   model [model]                      |
+  |Generated tags:          $INFO$md$[model]                   |
   |------------------------------------------------------------|
   |Function:                generateWatchModelTag(WatchModel)  |
   |------------------------------------------------------------|
 
-Ex: Datejust is tagged as "model datejust"
+Ex: Datejust is tagged as "$INFO$md$datejust"
 
 
 =====================================
@@ -370,13 +377,22 @@ HOW TO GENERATE WATCH BRACELET TAG
   |                              MATERIALS TAGS"                                |
   |=============================================================================|
   |=============================================================================|
-  |Generated tags format:   [material]^ bracelet, [type] bracelet               |
+  |Generated tags:          materials.. for each tag produced by "HOW TO        |
+  | 					GENERATE GENERIC MATERIALS TAGS":  	|
+  | 	         	      - replace $INFO$bmat$ with $INFO$cmbndmatat$      |
+  | 			      - replace $INFO$bmat_goldpur$ with                |
+  |                             $INFO$cmbndmatat_goldpur$                       |
+  |			      - append " bracelet" at the end                   | 
+  |      									|
+  |			    $INFO$cmbndmatat_type$ [type] bracelet              |
   |-----------------------------------------------------------------------------|
   |Function:                generateWatchBraceletTag(WatchBracelet)             |
   |-----------------------------------------------------------------------------| 
-^for each material tag generated as shown in "HOW... GENERIC MATERIALS TAGS", append "bracelet"
 
-Ex: 18kt yellow gold oyster bracelet is tagged as "18kt bracelet, yellow gold bracelet, gold bracelet, oyster bracelet"
+Ex: 18kt yellow gold oyster bracelet is tagged as "$INFO$cmbndmatat_goldpur$18kt bracelet, 
+						   $INFO$cmbndmatat$yellow gold bracelet, 
+						   $INFO$cmbndmatat$gold,
+					           $INFO$cmbndmatat$oyster bracelet"
 
 
 ==================================
@@ -391,7 +407,7 @@ HOW TO GENERATE WATCH STRAP TAG
   |Source of values:        WATCH_STRAP_MATERIAL_LEATHER_COLOR   WATCH_STRAP_MATERIAL_LEATHER_SOURCE  |
   |===================================================================================================|
   |===================================================================================================|
-  |Generated tags format:   leather strap, [color] leather strap, [source] leather strap              |
+  |Generated tags:          leather strap, [color] leather strap, [source] leather strap              |
   |---------------------------------------------------------------------------------------------------|
   |Function:                generateWatchStrapTag(LeatherStrapMaterial)                               |
   |---------------------------------------------------------------------------------------------------|
@@ -406,7 +422,7 @@ Ex: black alligator leather strap is tagged as "leather strap, black leather str
   |Source of values:        WATCH_STRAP_MATERIAL_OTHER_NAME   WATCH_STRAP_MATERIAL_OTHER_COLOR  |
   |=============================================================================================|
   |=============================================================================================|
-  |Generated tags format:   [name] strap, [color] strap                                         |
+  |Generated tags:          [name] strap, [color] strap                                         |
   |---------------------------------------------------------------------------------------------|
   |Function:                generateWatchStrapTag(OtherStrapMaterial)                           |
   |---------------------------------------------------------------------------------------------|
@@ -424,7 +440,7 @@ HOW TO GENERATE WATCH DIAL TAG
   |Source of values:        WATCH_DIAL_PATTERN_FEATURE  WATCH_DIAL_STONE   WATCH_DIAL_COLOR  |
   |==========================================================================================|
   |==========================================================================================|
-  |Generated tags format:   [color] dial, [stone] dial, [pattern] dial                       |
+  |Generated tags:          $INFO$dc$[color] dial, [stone] dial, [pattern] dial              |
   |------------------------------------------------------------------------------------------|
   |Function:                generateWatchDialTag(WatchDial)                                  |
   |------------------------------------------------------------------------------------------|
@@ -443,7 +459,7 @@ HOW TO GENERATE WATCH CASE MATERIAL TAG
   |                              MATERIALS TAGS"             |
   |==========================================================|
   |==========================================================|
-  |Generated tags format:   [material]^ case material        |
+  |Generated tags:          [material]^ case material        |
   |----------------------------------------------------------|
   |Function:                generateWatchCaseTag(WatchCase)  |
   |----------------------------------------------------------| 
@@ -462,12 +478,12 @@ HOW TO GENERATE WATCH PAPERS TAG
   |Source of values:        WATCH_PAPERS_VALUE                   |
   |==============================================================|
   |==============================================================|
-  |Generated tags format:   [value]                              |
+  |Generated tags:          $INFO$hasPapers                      |
   |--------------------------------------------------------------|
   |Function:                generateWatchPapersTag(WatchPapers)  |
   |--------------------------------------------------------------|
 
-Ex: papers is tagged as "papers"
+Ex: papers is tagged as "$INFO$hasPapers"
 
 
 ===================================
@@ -480,12 +496,12 @@ HOW TO GENERATE PRODUCT YEAR TAG
   |Source of values:        PRODUCT_YEAR                         |
   |==============================================================|
   |==============================================================|
-  |Generated tags format:   year [year]                          |
+  |Generated tags:          $INFO$yr$[year]                      |
   |--------------------------------------------------------------|
   |Function:                generateProductYearTag(ProductYear)  |
   |--------------------------------------------------------------|
 
-Ex: 1953 is tagged as "year 1953"
+Ex: 1953 is tagged as "$INFO$yr$1953"
 
 
 =====================================
@@ -498,12 +514,12 @@ HOW TO GENERATE WATCH MOVEMENT TAG
   |Source of values:        WATCH_MOVEMENT                           |
   |==================================================================|
   |==================================================================|
-  |Generated tags format:   [movement] movement                      |
+  |Generated tags:          $INFO$mvmt$[movement] movement           |
   |------------------------------------------------------------------|
   |Function:                generateWatchMovementTag(WatchMovement)  |
   |------------------------------------------------------------------|
 
-Ex: automatic is tagged as "automatic movement"
+Ex: automatic is tagged as "$INFO$mvmt$automatic movement"
 
 
 ============================================
@@ -516,10 +532,12 @@ HOW TO GENERATE WATCH CASE DIMENSIONS TAG
   |Source of values:        WATCH_CASE_DIMENSIONS   WATCH_CASE_DIMENSIONS   WATCH_CASE_DIMENSIONS   |
   |=================================================================================================|
   |=================================================================================================|
-  |Generated tags format:   case size [val1], case size [val2], case size [val1] X [val2] X [val3]  |
+  |Generated tags:          $INFO$cdr$[val1]	 	 	 	 	 	 	    |
+  |		  	    $INFO$cdr$[val2] 							    |
+  |		  	    $INFO$cdr$[val3] 							    |
   |-------------------------------------------------------------------------------------------------|
   |Function:                generateWatchCaseSizeTag(WatchCaseDimensions)                           |
   |-------------------------------------------------------------------------------------------------|
 
-Ex: case dimensions of 32mm x 36mm: "case size 32mm, case size 36m, case size 32mm X 36mm"
+Ex: case dimensions of 32mm x 36mm: "$INFO$cdr$32mm, $INFO$cdr$36m"
 
