@@ -52,11 +52,6 @@ function ProductGender(gender){
 	this.gender = gender;
 }
 
-function ProductCertified(certified, type) {
-	this.certified = certified;
-	this.type = type;
-}
-
 function ProductBrand(brand){
 	this.brand = brand;
 }
@@ -110,10 +105,6 @@ function WatchDialStones(stone) {
 function WatchCase(materials) {
 	this.materials = materials;
  }
-
-function WatchPapers(value) {
-	this.value = value;
-}
 
 function ProductYear(year) {
 	this.year = year;

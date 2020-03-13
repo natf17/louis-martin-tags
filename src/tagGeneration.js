@@ -1,70 +1,68 @@
 
-// ACCEPTS: GoldMaterial
-// RETURNS: gold, [composition] gold, [color] gold, [purity]
-function generateGoldMaterialTagStrategy(gold) {
+// ACCEPTS: GoldMaterial, string, string
+// RETURNS: [goldPrefix]gold, [goldPrefix][composition] gold, [goldPrefix][color] gold, [goldPurityPrefix][purity]
+function generateGoldMaterialTagStrategy(gold, goldPrefix, goldPurityPrefix) {
 	var tags = [];
 	var suffix = "gold";
 
+	tags.push(goldPrefix + suffix);
+
 	if(gold.purity != null) {
-		tags.push(suffix);
+		tags.push(goldPurityPrefix + gold.purity);
 	} 
 
 	if(gold.color != null) {
-		tags.push(gold.color + " " + suffix);
+		tags.push(goldPrefix + gold.color + " " + suffix);
 	} 
 
 	if(gold.composition != null) {
-		tags.push(gold.composition + " " + suffix);
+		tags.push(goldPrefix + gold.composition + " " + suffix);
 	} 
-
-	if(tags.length > 0) {
-		tags.push(suffix);
-	}
 
 	return tags;
 }
 
-// ACCEPTS: SilverMaterial
-// RETURNS: silver, [composition] silver
-function generateSilverMaterialTagStrategy(silver) {
+// ACCEPTS: SilverMaterial, string
+// RETURNS: [silverPrefix]silver, [silverPrefix][composition] silver
+function generateSilverMaterialTagStrategy(silver, silverPrefix) {
 	var tags = [];
 	var suffix = "silver";
 
-	tags.push(suffix);
+	tags.push(silverPrefix + suffix);
 
 	if(silver.composition != null) {
-		tags.push(silver.composition + " " + suffix);
+		tags.push(silverPrefix + silver.composition + " " + suffix);
 	} 
 
 	return tags;
 }
 
 // ACCEPTS: OtherMaterial
-// RETURNS: [name], [color] [name]
-function generateOtherMaterialTagStrategy(other) {
+// RETURNS: [matPrefix][name]
+function generateOtherMaterialTagStrategy(other, matPrefix) {
 	var tags = [];
 
 	if(other.name != null) {
-		tags.push(other.name);
-
-		if(other.color != null) {
-			tags.push(other.color + " " + other.name);
-		} 
+		tags.push(matPrefix + other.name);
 	} 
 
 	return tags;
 }
 
 // delegates to other material functions
-function generateMaterialTags(material) {
+// expects a GoldMaterial/SilverMaterial/OtherMaterial
+//           {gold material prefixes}
+//           {silver material prefixes}
+//           {other material prefixes}
+function generateMaterialTags(material, gP, sP, omP) {
 	var generatedTags = null;
 
 	if(material instanceof GoldMaterial) {
-		generatedTags = generateGoldMaterialTag(currentMaterial);
+		generatedTags = generateGoldMaterialTag(currentMaterial, gP.goldPrefix, gP.goldPurityPrefix);
 	} else if(material instanceof SilverMaterial) {
-		generatedTags = generateSilverMaterialTag(currentMaterial);
+		generatedTags = generateSilverMaterialTag(currentMaterial, sP.silverPrefix);
 	} else if(material instanceof OtherMaterial) {
-		generatedTags = generateOtherMaterialTag(currentMaterial);
+		generatedTags = generateOtherMaterialTag(currentMaterial, omP.otherPrefix);
 	} else {
 		throw new Error("Watch bracelet material of unknown type");
 	}
@@ -73,53 +71,55 @@ function generateMaterialTags(material) {
 }
 
 // ACCEPTS: DiamondStone
-// RETURNS: diamond, [cut] diamond, [color]-color diamond, [clarity] diamond, [carat]ct diamond, [fancycolor] diamond
-function generateDiamondStoneTag(diamond) {
+// RETURNS: [diamondPrefix]diamond, [diamondPrefix][cut] diamond, [diamondPrefix][color]-color diamond, 
+//          [diamondPrefix][clarity] diamond, [diamondPrefix][carat]ct diamond,
+//          [diamondColorPrefix][fancycolor] diamond
+function generateDiamondStoneTag(diamond, diamondPrefix, diamondColorPrefix) {
 	var tags = [];
 	var suffix = "diamond";
 
 
 	if(diamond.cut != null) {
-		tags.push(diamond.cut + " " + suffix);
+		tags.push(diamondPrefix + diamond.cut + " " + suffix);
 	}
 
 	if(diamond.color != null) {
-		tags.push(diamond.color + "-color " + suffix);
+		tags.push(diamondPrefix+ diamond.color + "-color " + suffix);
 	} 
 
 	if(diamond.clarity != null) {
-		tags.push(diamond.clarity + " " + suffix);
+		tags.push(diamondPrefix + diamond.clarity + " " + suffix);
 	} 
 	
 	if(diamond.cut != null) {
-		tags.push(diamond.carat + "ct " + suffix);
+		tags.push(diamondPrefix + diamond.carat + "ct " + suffix);
 	} 
 
 	if(diamond.fancycolor != null) {
-		tags.push(diamond.fancycolor + " " + suffix);
+		tags.push(diamondColorPrefix + diamond.fancycolor + " " + suffix);
 	} 
 
 	if(tags.length > 0) {
-		tags.push(suffix);
+		tags.push(diamondPrefix + suffix);
 	}
 
 	return tags;
 }
 
 // ACCEPTS: OtherStone
-// RETURNS: [name], [type], [color] [name], [carat]ct [name]
-function generateOtherStoneTag(other) {
+// RETURNS: [stonePrefix][name], [stonePrefix][color] [name], [carat]ct [name]
+function generateOtherStoneTag(other, stonePrefix, stoneColorPrefix) {
 	var tags = [];
 
 	if(other.name != null) {
-		tags.push(other.name);
+		tags.push(stonePrefix + other.name);
 
 		if(other.color != null) {
-			tags.push(other.color + " " + other.name);
+			tags.push(stoneColorPrefix + other.color + " " + other.name);
 		} 
 
 		if(other.carat != null) {
-			tags.push(other.carat + "ct " + other.name);
+			tags.push(stonePrefix + other.carat + "ct " + other.name);
 		} 
 
 	} 
@@ -132,26 +132,24 @@ function generateOtherStoneTag(other) {
 }
 
 // ACCEPTS: EstateDecade
-// RETURNS: circa [decade]
-function generateEstateDecadeTag(decade) {
+// RETURNS: [decadePrefix][decade]
+function generateEstateDecadeTag(decade, decadePrefix) {
 	var tags = [];
-	var prefix = "circa";
 
 	if(decade.decade != null) {
-		tags.push(prefix + " " + decade.decade);
+		tags.push(decadePrefix + " " + decade.decade);
 	}
 
 	return tags;
 }
 
 // ACCEPTS: Era
-// RETURNS: [era] era
-function generateEstateDecadeTag(era) {
+// RETURNS: [eraPrefix][era]
+function generateEraTimePeriodTag(era, eraPrefix) {
 	var tags = [];
-	var suffix = "era";
 
 	if(era.era != null) {
-		tags.push(era.era + " " + suffix);
+		tags.push(eraPrefix + era.era);
 	}
 
 	return tags;
@@ -159,22 +157,10 @@ function generateEstateDecadeTag(era) {
 
 // ACCEPTS: ProductCategory
 // RETURNS: [type]
-function generateProductTypeTag(productType) {
+function generateProductTypeTag(productType, ) {
 	return generateSimpleTag(productType.category);
 }
 
-// ACCEPTS: ProductCategory
-// RETURNS: [type]...
-function generateBridalProductTypeTag(productType) {
-	var tags = [];
-	if(productType.category != null) {
-		tags.push(productType.category);
-		if(productType.category == "mens-wedding-bands" || productType.category == "womens-wedding-bands") {
-			tags.push("wedding-bands");
-		}
-	}
-	return tags;
-}
 
 // ACCEPTS: ProductCategory
 // RETURNS: [type]
@@ -193,96 +179,83 @@ function generateSimpleTag(value) {
 	return tags;
 }
 
-// ACCEPTS: ProductCondition
-// RETURNS: condition [condition]
-function generateProductConditionTag(condition) {
-	var tags = [];
-	var prefix = "condition";
-
-	if(condition.condition != null) {
-		tags.push(prefix + " " + condition.condition);
-	}
-
-	return tags;
-}
-
 // ACCEPTS: ProductGender
-// RETURNS: [gender]
-function generateProductGenderTag(gender) {
+// RETURNS: [genderPrefix][gender]
+function generateProductGenderTag(gender, genderPrefix) {
 	var tags = [];
 
 	if(gender.gender != null) {
-		tags.push(gender.gender);
+		tags.push(genderPrefix + gender.gender);
 	}
 
 	return tags;
 }
 
 // ACCEPTS: ProductCertified
-// RETURNS: [certified], [type] certified
-function generateProductCertifiedTag(certified) {
+// RETURNS: [certifiedPrefix]
+function generateProductCertifiedTag(certifiedPrefix) {
 	var tags = [];
-	var suffix = "certified";
 
-	if(certified.certified != null) {
-		tags.push(certified.certified);
-		
-		if(certified.type != null) {
-			tags.push(certified.type + " " + suffix);
-		}
-	}
+	tags.push(certifiedPrefix);
 
 	return tags;
 }
 
 // ACCEPTS: ProductBrand
-// RETURNS: [brand]
-function generateProductBrandTag(brand) {
-	return generateSimpleTag(brand.brand);
+// RETURNS: [brandPrefix][brand]
+function generateProductBrandTag(brand, brandPrefix) {
+	return generateSimpleTag(brandPrefix + brand.brand);
 }
 
 // ACCEPTS: ProductSpecialShapeOrCategory
-// RETURNS: [type]
-function generateSpecialCollectionTag(type) {
-	return generateSimpleTag(type.type);
+// RETURNS: [spCollPrefix][type]
+function generateSpecialCollectionTag(type, spCollPrefix) {
+	return generateSimpleTag(spCollPrefix + type.type);
 }
 
 // ACCEPTS: WatchModel
-// RETURNS: model [model]
-function generateWatchModelTag(model) {
+// RETURNS: [modelPrefix][model]
+function generateWatchModelTag(model, modelPrefix) {
 	var tags = [];
-	var prefix = "model";
 
 	if(model.model != null) {
-		tags.push(prefix + " " + model.model);
+		tags.push(modelPrefix + model.model);
 	}
 
 	return tags;
 }
 
 // ACCEPTS: WatchBracelet
-// RETURNS: for each material: [material] bracelet
-//         [type] bracelet
+// RETURNS: for each material: [prefix][material] bracelet
 function generateWatchBraceletTag(watchBracelet) {
 	var tags = [];
 	var suffix = "bracelet";
 	var currentMaterial = null;
 	var currentMaterialTags = null;
 
-	if(watchBracelet.types != null && watchBracelet.types.length > 0) {
-		for(var i = 0; i < watchBracelet.types.length; i++) {
-			tags.push(watchBracelet.types[i] + " " + suffix);
-		}
-	}
+	var goldPrefixValues = {
+    	goldPrefix: "$INFO$cmbndmatat$";
+    	goldPurityPrefix"$INFO$cmbndmatat_goldpur$";
+	};
+
+	var silverPrefixValues = {
+    	silverPrefix: "$INFO$cmbndmatat$";
+	};
+
+	var otherMaterialValues = {
+    	otherPrefix: "$INFO$cmbndmatat$";
+	};
+
+
 
 	if(watchBracelet.materials != null && watchBracelet.materials.length > 0) {
 		for(var i = 0; i < watchBracelet.materials.length; i++) {
 			currentMaterial = watchBracelet.materials[i];
 
-			currentMaterialTags = generateMaterialTags(currentMaterial);
+			currentMaterialTags = generateMaterialTags(currentMaterial, goldPrefixValues, silverPrefixValues, otherMaterialValues);
 
 			for(var j = 0; j < currentMaterialTags.length; j++) {
-				tags.push(currentMaterialTags[j] + " " + suffix);
+				tags.push(currentMaterialTags[j].replace() + " " + suffix);
 			}
 		}
 	}
@@ -325,27 +298,20 @@ function generateWatchStrapTag(watchStrap) {
 }
 
 // ACCEPTS: WatchDial
-// RETURNS: [color] dial, [stone] dial, [pattern] dial
-function generateWatchDialTag(watchDial) {
+// RETURNS: [dialColorPrefix][color] dial, [dialStonePrefix][stone] dial
+function generateWatchDialTag(watchDial, dialColorPrefix, dialStonePrefix) {
 	var tags = [];
 	var suffix = "dial";
 
-	if(watchDial.patterns != null && watchDial.patterns.length > 0) {
-		for(var i = 0; i < watchDial.patterns.length; i++) {
-			tags.push(watchDial.patterns[i] + " " + suffix);
-		}
-
-	}
-
 	if(watchDial.stones != null && watchDial.stones.length > 0) {
 		for(var i = 0; i < watchDial.stones.length; i++) {
-			tags.push(watchDial.stones[i] + " " + suffix);
+			tags.push(dialStonePrefix + watchDial.stones[i] + " " + suffix);
 		}
 
 	}
 
 	if(watchDial.color != null) {
-		tags.push(watchDial.color + " " + suffix);
+		tags.push(dialColorPrefix + watchDial.color + " " + suffix);
 	}
 
 	return tags;
@@ -376,54 +342,45 @@ function generateWatchCaseTag(watchCase) {
 }
 
 // ACCEPTS: WatchPapers
-// RETURNS: [value]
-function generateWatchPapersTag(watchPapers) {
-	return generateSimpleTag(watchPapers.value);
+// RETURNS: [watchPapersPrefix]
+function generateWatchPapersTag(watchPapersPrefix) {
+	return generateSimpleTag(watchPapersPrefix);
 }
 
 // ACCEPTS: ProductYear
-// RETURNS: year [year]
-function generateProductYearTag(productYear) {
+// RETURNS: [yearPrefix][year]
+function generateProductYearTag(productYear, yearPrefix) {
 	var tags = [];
-	var prefix = "year";
 
 	if(productYear.year != null) {
-		tags.push(prefix + " " + productYear.year);
+		tags.push(yearPrefix + " " + productYear.year);
 	}
 
 	return tags;
 }
 
 // ACCEPTS: WatchMovement
-// RETURNS: [movement] movement
-function generateWatchMovementTag(watchMovement) {
+// RETURNS: [movementPrefix][movement] movement
+function generateWatchMovementTag(watchMovement, movementPrefix) {
 	var tags = [];
 	var suffix = "movement";
 
 	if(watchMovement.movement != null) {
-		tags.push(watchMovement.movement + " " + suffix);
+		tags.push(movementPrefix + watchMovement.movement + " " + suffix);
 	}
 
 	return tags;
 }
 
 // ACCEPTS: WatchCaseDimensions
-// RETURNS: case size [val1], case size [val2], case size [val1] X [val2] X [val3]
-function generateWatchCaseSizeTag(watchCaseDimensions) {
+// RETURNS: [caseSizePrefix][val1], [caseSizePrefix][val2], [caseSizePrefix][val3]
+function generateWatchCaseSizeTag(watchCaseDimensions, caseSizePrefix) {
 	var tags = [];
-	var prefix = "case size";
-	var fullDimension = "";
-	var connector = " X ";
 
 	if(watchCaseDimensions.dimensions != null && watchCaseDimensions.dimensions.length > 0) {
 		for(var i = 0; i < watchCaseDimensions.dimensions.length; i++) {
-			tags.push(prefix + " " + watchCaseDimensions.dimensions);
-
-			if(i < watchCaseDimensions.dimensions.length - 1) {
-				fullDimension += connector;
-			}
+			tags.push(caseSizePrefix + watchCaseDimensions.dimensions[i]);
 		}
-		tags.push(prefix + " " + fullDimension);
 	}
 
 	return tags;

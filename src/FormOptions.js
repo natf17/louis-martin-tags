@@ -127,20 +127,6 @@ var STONE_DIAMOND_CUT = {
 	]
 };
 
-var STONE_OTHER_TYPE = {
-	values: [
-		"Angel coral", //coral
-		"Natural", //(coral, turquoise)
-		"Spessartite", //(garnet)
-		"Akoya pearl", //pearl
-		"Mother of pearl", //pearl
-		"Tahitian pearl", //pearl
-		"South sea pearl", //pearl
-		"Mabe pearl", //pearl
-		"Cabochon"
-	]
-};
-
 var STONE_OTHER_COLOR = {
 	values: [
 		"Black",
@@ -165,6 +151,8 @@ var STONE_OTHER_NAME = {
 		"amethyst", 
 		"apatite", 
 		"coral",
+		"natural coral",
+		"angel coral",
 		"onyx", 
 		"beryl", 
 		"aquamarine", 
@@ -175,6 +163,7 @@ var STONE_OTHER_NAME = {
 		"morganite", 
 		"chrysoberyl", 
 		"turquoise", 
+		"natural turquoise"
 		"topaz", 
 		"tourmaline", 
 		"tsavorite",
@@ -183,6 +172,7 @@ var STONE_OTHER_NAME = {
 		"ruby", 
 		"tanzanite", 
 		"garnet", 
+		"spessartite garnet",
 		"jade", 
 		"feldspar", 
 		"gemstone", 
@@ -191,6 +181,11 @@ var STONE_OTHER_NAME = {
 		"semi precious"
 		"sapphire", 
 		"pearl", 
+		"akoya pearl",
+		"mother of pearl",
+		"tahitian pearl",
+		"south sea pearl",
+		"mabe pearl",
 		"lapis", 
 		"quartz"
 	]
@@ -308,12 +303,6 @@ var WATCH_MODEL_NAME = {
 };
 
 
-var WATCH_BRACELET_TYPE = {
-	values: [
-		"oyster"
-	]
-};
-
 var WATCH_STRAP_MATERIAL_OTHER_NAME = {
 	values: [
 		"rubber",
@@ -427,9 +416,7 @@ var JEWELRY_PRODUCT_CATEGORY = {
 var BRIDAL_PRODUCT_CATEGORY = {
 	values: [
 		"engagement-rings",
-		"wedding-bands",
-		"mens-wedding-bands",
-		"womens-wedding-bands"
+		"wedding-bands"
 	]
 };
 
